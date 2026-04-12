@@ -1,28 +1,9 @@
 import dotenv from "dotenv"
 dotenv.config({ path: "./.env" })
- // ← also fix: "./env" should be "./.env"
-
-import mongoose from "mongoose"
 import { DB_NAME } from "./constants.js"
 import connectDB from "./db/index.js"
-
-
-
 connectDB()
-
-
-
-console.log("URI:", process.env.MONGODB_URI); // should print your connection string
-
-
-
-
-
-
-
-
-
-
+console.log("URI:", process.env.MONGODB_URI); 
 
 /* const app = express();
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
