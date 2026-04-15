@@ -2,8 +2,45 @@ import dotenv from "dotenv"
 dotenv.config({ path: "./.env" })
 import { DB_NAME } from "./constants.js"
 import connectDB from "./db/index.js"
+import {app} from "./app.js"
+
+
 connectDB()
+.then(() => {
+    app.listen(process.env.PORT || 8000, () => {
+        console.log(`⚙️ Server is running at port : ${process.env.PORT}`);
+    })
+})
+.catch((err) => {
+    console.log("MONGO db connection failed !!! ", err);
+})
+
 console.log("URI:", process.env.MONGODB_URI); 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* const app = express();
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost:27017";
