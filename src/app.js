@@ -9,6 +9,11 @@ app.use(cors({
     credentials: true,
 }))
 
+app.use((req, res, next) => {
+  console.log("Content-Type:", req.headers["content-type"]);
+  next();
+});
+
 app.use(express.json({limit: "16kb"}))
 app.use(express.urlencoded({extended: true, limit: "16kb"}))
 app.use(express.static("public"))
